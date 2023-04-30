@@ -24,7 +24,7 @@ const FormProvider = ({ children }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (formValues.password !== formValues.confirmPassword) {
-            alert('WYPIERDALAJ')
+            alert('Passwords must match')
             return
         }
         navigate('/summary')

@@ -23,6 +23,7 @@ const RegisterForm = () => {
                 value={email}
                 onChange={handleInputChange}
                 required
+                title="Email jest chujowy"
                 placeholder=" "
             />
             <Field
@@ -47,22 +48,25 @@ const RegisterForm = () => {
             />
             <Field
                 label="NIP"
-                type="number"
+                type="text"
                 name="nip"
                 value={nip}
                 onChange={handleInputChange}
+                pattern="[0-9]{10}"
+                title="NIP should cointain 10 numbers"
                 required
                 placeholder=" "
             />
             <Field
                 label="Phone"
-                type="number"
+                type="text"
                 name="phone"
                 value={phone}
                 onChange={handleInputChange}
+                pattern="[0-9]{9}"
+                title="Number phone should cointain 9 numbers"
                 placeholder=" "
             />
-
             <RolesField
                 label="Roles"
                 name="roles"
@@ -70,7 +74,6 @@ const RegisterForm = () => {
                 onChange={handleInputChange}
                 required
             />
-
             <Button type="submit">Summary</Button>
         </Wrapper>
     )

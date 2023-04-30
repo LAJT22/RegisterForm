@@ -6,8 +6,8 @@ export const StyledButton = styled.button`
     border-radius: 5px;
     color: #ffffff;
     border: none;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    margin-top: 25px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 94, 185, 0.5);
+    margin-top: 20px;
     width: 350px;
     height: 45px;
     font-size: 18px;

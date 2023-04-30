@@ -12,9 +12,8 @@ const Field = ({
     id,
     required,
     pattern,
-    minLenght,
-    maxLenght,
     placeholder,
+    title,
 }) => (
     <Wrapper>
         <Input
@@ -25,9 +24,8 @@ const Field = ({
             onChange={onChange}
             required={required}
             pattern={pattern}
-            minLenght={minLenght}
-            maxLenght={maxLenght}
             placeholder={placeholder}
+            title={title}
         />
         <Label name={name} htmlFor={id}>
             {label}
