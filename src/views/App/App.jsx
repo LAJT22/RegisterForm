@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import RegisterForm from '../../components/organisms/RegisterForm/RegisterForm'
+import { GlobalStyle } from '../../styles/GlobalStyle'
 import ConfirmRegister from '../ConfirmRegister/ConfirmRegister'
 import { Wrapper } from './App.styles'
-import { GlobalStyle } from '../../styles/GlobalStyle'
 
 function App() {
     return (

@@ -8,4 +8,5 @@ export const StyledButton = styled.button`
     margin-top: 25px;
     width: 350px;
     height: 45px;
+    font-size: 18px;
 `

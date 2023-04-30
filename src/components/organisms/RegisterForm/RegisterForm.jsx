@@ -17,11 +17,11 @@ const initialFormState = {
 
 const RegisterForm = () => {
     const [formValues, setFormValues] = useState(initialFormState)
+    const { email, password, ConPassword, nip, phone, roles } = formValues
     const navigate = useNavigate()
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (formValues.password !== formValues.ConPassword) {
+        if (password !== ConPassword) {
             alert('WYPIERDALAJ')
             return
         }
@@ -37,61 +37,59 @@ const RegisterForm = () => {
         })
     }
     return (
-        <>
-            <Wrapper onSubmit={handleSubmit}>
-                <Title>Register Form</Title>
-                <Field
-                    label="Email"
-                    type="email"
-                    name="email"
-                    value={formValues.email}
-                    onChange={handleInputChange}
-                    required
-                />
-                <Field
-                    label="Password"
-                    type="password"
-                    name="password"
-                    value={formValues.password}
-                    onChange={handleInputChange}
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                    required
-                />
-                <Field
-                    label="Confirm Password"
-                    type="password"
-                    name="ConPassword"
-                    value={formValues.ConPassword}
-                    onChange={handleInputChange}
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-                    required
-                />
-                <Field
-                    label="NIP"
-                    type="number"
-                    name="nip"
-                    value={formValues.nip}
-                    onChange={handleInputChange}
-                    required
-                />
-                <Field
-                    label="Phone"
-                    type="number"
-                    name="phone"
-                    value={formValues.phone}
-                    onChange={handleInputChange}
-                />
-                <RolesField
-                    label="Roles"
-                    name="roles"
-                    value={formValues.roles}
-                    onChange={handleInputChange}
-                    required
-                />
+        <Wrapper onSubmit={handleSubmit}>
+            <Title>Register Form</Title>
+            <Field
+                label="Email"
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleInputChange}
+                required
+            />
+            <Field
+                label="Password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleInputChange}
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
+            />
+            <Field
+                label="Confirm Password"
+                type="password"
+                name="ConPassword"
+                value={ConPassword}
+                onChange={handleInputChange}
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                required
+            />
+            <Field
+                label="NIP"
+                type="number"
+                name="nip"
+                value={nip}
+                onChange={handleInputChange}
+                required
+            />
+            <Field
+                label="Phone"
+                type="number"
+                name="phone"
+                value={phone}
+                onChange={handleInputChange}
+            />
+            <RolesField
+                label="Roles"
+                name="roles"
+                value={roles}
+                onChange={handleInputChange}
+                required
+            />
 
-                <Button type="submit">Register</Button>
-            </Wrapper>
-        </>
+            <Button type="submit">Register</Button>
+        </Wrapper>
     )
 }
 
