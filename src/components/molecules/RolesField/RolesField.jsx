@@ -5,22 +5,33 @@ import Option from '../../atoms/Option/Option'
 import Select from '../../atoms/Select/Select'
 import { Wrapper } from './RolesField.styles'
 
-const RolesField = ({ label, value, onChange, required, name }) => (
+const RolesField = ({
+    label,
+    value,
+    onChange,
+    required,
+    name,
+    id,
+    placeholder,
+}) => (
     <Wrapper>
-        <Label>{label}</Label>
         <Select
             required={required}
             onChange={onChange}
             name={name}
             value={value}
+            placeholder={placeholder}
         >
-            <Option value="" hidden>
-                Wybierz rolę
-            </Option>
+            <Option value="" hidden disabled></Option>
             {roles.map((role) => (
-                <Option key={role}>{role}</Option>
+                <Option key={role} name={name}>
+                    {role}
+                </Option>
             ))}
         </Select>
+        <Label name={name} htmlFor={id}>
+            {label}
+        </Label>
     </Wrapper>
 )
 

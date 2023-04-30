@@ -10,4 +10,6 @@ export const GlobalStyle = createGlobalStyle`
   body,button {
     font-family: 'Poppins', sans-serif;
   }
+
+
 `

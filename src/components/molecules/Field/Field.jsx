@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from '../../atoms/Input/Input'
 import Label from '../../atoms/Label/Label'
-import { Wrapper } from '../RolesField/RolesField.styles'
+import { Wrapper } from '../Field/Field.styles'
 
 const Field = ({
     onChange,
@@ -14,11 +14,9 @@ const Field = ({
     pattern,
     minLenght,
     maxLenght,
+    placeholder,
 }) => (
     <Wrapper>
-        <Label name={name} htmlFor={id}>
-            {label}
-        </Label>
         <Input
             name={name}
             id={id}
@@ -29,7 +27,11 @@ const Field = ({
             pattern={pattern}
             minLenght={minLenght}
             maxLenght={maxLenght}
+            placeholder={placeholder}
         />
+        <Label name={name} htmlFor={id}>
+            {label}
+        </Label>
     </Wrapper>
 )
 

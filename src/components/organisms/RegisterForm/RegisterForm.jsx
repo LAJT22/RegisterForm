@@ -1,41 +1,18 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { FormContext } from '../../../providers/FormProvider'
 import Button from '../../atoms/Button/Button'
 import Title from '../../atoms/Title/Title'
 import Field from '../../molecules/Field/Field'
 import RolesField from '../../molecules/RolesField/RolesField'
 import { Wrapper } from './RegisterForm.styles'
 
-const initialFormState = {
-    email: '',
-    password: '',
-    ConPassword: '',
-    nip: '',
-    phone: '',
-    roles: '',
-}
-
 const RegisterForm = () => {
-    const [formValues, setFormValues] = useState(initialFormState)
-    const { email, password, ConPassword, nip, phone, roles } = formValues
-    const navigate = useNavigate()
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (password !== ConPassword) {
-            alert('WYPIERDALAJ')
-            return
-        }
-        navigate('/summary')
-        console.log('dziala')
-    }
+    const {
+        formValues: { email, password, confirmPassword, nip, phone, roles },
+        handleSubmit,
+        handleInputChange,
+    } = useContext(FormContext)
 
-    const handleInputChange = (e) => {
-        console.log(formValues)
-        setFormValues({
-            ...formValues,
-            [e.target.name]: e.target.value,
-        })
-    }
     return (
         <Wrapper onSubmit={handleSubmit}>
             <Title>Register Form</Title>
@@ -46,6 +23,7 @@ const RegisterForm = () => {
                 value={email}
                 onChange={handleInputChange}
                 required
+                placeholder=" "
             />
             <Field
                 label="Password"
@@ -55,15 +33,17 @@ const RegisterForm = () => {
                 onChange={handleInputChange}
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                 required
+                placeholder=" "
             />
             <Field
                 label="Confirm Password"
                 type="password"
-                name="ConPassword"
-                value={ConPassword}
+                name="confirmPassword"
+                value={confirmPassword}
                 onChange={handleInputChange}
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                 required
+                placeholder=" "
             />
             <Field
                 label="NIP"
@@ -72,6 +52,7 @@ const RegisterForm = () => {
                 value={nip}
                 onChange={handleInputChange}
                 required
+                placeholder=" "
             />
             <Field
                 label="Phone"
@@ -79,6 +60,7 @@ const RegisterForm = () => {
                 name="phone"
                 value={phone}
                 onChange={handleInputChange}
+                placeholder=" "
             />
             <RolesField
                 label="Roles"
@@ -86,9 +68,10 @@ const RegisterForm = () => {
                 value={roles}
                 onChange={handleInputChange}
                 required
+                placeholder=" "
             />
 
-            <Button type="submit">Register</Button>
+            <Button type="submit">Summary</Button>
         </Wrapper>
     )
 }

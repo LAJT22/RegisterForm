@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/atoms/Button/Button'
+import { FormContext } from '../../providers/FormProvider'
 import { Wrapper } from './ConfirmRegister.styles'
+import Title from '../../components/atoms/Title/Title'
+import Paragraph from '../../components/atoms/Paragraph/Paragraph'
 
 const printPwdStarts = (pwd) => {
     const howMany = pwd.length
@@ -13,18 +16,21 @@ const printPwdStarts = (pwd) => {
 }
 
 const ConfirmRegister = () => {
+    const {
+        formValues: { email, password, nip, phone, roles },
+    } = useContext(FormContext)
     return (
         <Wrapper>
-            <h2>Podsumowanie:</h2>
-            <p>Email:{email}</p>
-            <p>Hasło: {printPwdStarts(password)}</p>
-            <p>NIP: {nip}</p>
-            {phone && <p>Telefon: {phone}</p>}
-            <p>Rola użytkownika: {roles}</p>
+            <Title>Check your details</Title>
+            <Paragraph>Email: {email}</Paragraph>
+            <Paragraph>Password: {printPwdStarts(password)}</Paragraph>
+            <Paragraph>NIP: {nip}</Paragraph>
+            {phone && <Paragraph>Phone: {phone}</Paragraph>}
+            <Paragraph>User role: {roles}</Paragraph>
             <Link to="/">
-                <Button>Edytuj</Button>
+                <Button>Edit</Button>
             </Link>
-            <Button>Potwierdź</Button>
+            <Button>Confirm</Button>
         </Wrapper>
     )
 }
