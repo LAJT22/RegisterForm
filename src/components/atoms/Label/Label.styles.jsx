@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { StyledInput } from '../Input/Input.styles'
-import { StyledOption } from '../Option/Option.styles'
 import { StyledSelect } from '../Select/Select.styles'
 
 export const StyledLabel = styled.label`
@@ -17,12 +16,9 @@ export const StyledLabel = styled.label`
 
     ${StyledInput}:focus ~ &,
     ${StyledInput}:not(:placeholder-shown) ~ &,
-    ${StyledSelect}:focus ~ & {
+    ${StyledSelect}:focus ~ &,
+    ${StyledSelect}:valid ~ & {
         top: -15px;
         color: #0076e8;
-    }
-
-    ${StyledOption}:not(:first-of-type) ~ & {
-        top: -15px;
     }
 `

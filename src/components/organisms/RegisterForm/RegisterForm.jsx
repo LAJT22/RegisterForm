@@ -62,13 +62,13 @@ const RegisterForm = () => {
                 onChange={handleInputChange}
                 placeholder=" "
             />
+
             <RolesField
                 label="Roles"
                 name="roles"
                 value={roles}
                 onChange={handleInputChange}
                 required
-                placeholder=" "
             />
 
             <Button type="submit">Summary</Button>

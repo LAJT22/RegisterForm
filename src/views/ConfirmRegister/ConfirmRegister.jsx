@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/atoms/Button/Button'
+import Paragraph from '../../components/atoms/Paragraph/Paragraph'
+import Title from '../../components/atoms/Title/Title'
 import { FormContext } from '../../providers/FormProvider'
 import { Wrapper } from './ConfirmRegister.styles'
-import Title from '../../components/atoms/Title/Title'
-import Paragraph from '../../components/atoms/Paragraph/Paragraph'
 
 const printPwdStarts = (pwd) => {
     const howMany = pwd.length
@@ -13,6 +13,10 @@ const printPwdStarts = (pwd) => {
         hashedPwd += '*'
     }
     return hashedPwd
+}
+
+const handleApiError = () =>{
+    return alert('API temporarily unavailable')
 }
 
 const ConfirmRegister = () => {
@@ -30,7 +34,7 @@ const ConfirmRegister = () => {
             <Link to="/">
                 <Button>Edit</Button>
             </Link>
-            <Button>Confirm</Button>
+            <Button onClick={handleApiError}>Confirm</Button>
         </Wrapper>
     )
 }
